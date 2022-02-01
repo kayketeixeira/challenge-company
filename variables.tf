@@ -12,7 +12,7 @@ variable "eks_version" {
 
 variable "node_instances_sizes" {
   default = [
-    "t2.micro"
+    "t3.large"
   ]
 }
 

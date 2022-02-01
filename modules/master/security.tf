@@ -14,20 +14,29 @@ resource "aws_security_group" "cluster-master-sg" {
   }
 }
 
-resource "aws_security_group_rule" "cluster_ingress_https" {
-  type              = "ingress"
-  cidr_blocks       = ["177.11.155.14/32"]
-  from_port         = 443
-  to_port           = 443
-  protocol          = "tcp"
-  security_group_id = aws_security_group.cluster-master-sg.id
-}
+#resource "aws_security_group_rule" "cluster_ingress_https" {
+  #type              = "ingress"
+  #cidr_blocks       = ["191.7.84.12/32"]
+  #from_port         = 443
+  #to_port           = 443
+  #protocol          = "tcp"
+  #security_group_id = aws_security_group.cluster-master-sg.id
+#}
 
-resource "aws_security_group_rule" "cluster_ingress_ssh" {
-  type              = "ingress"
-  cidr_blocks       = ["177.11.155.14/32"]
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  security_group_id = aws_security_group.cluster-master-sg.id
-}
+#resource "aws_security_group_rule" "cluster_ingress_http" {
+  #type              = "ingress"
+  #cidr_blocks       = ["191.7.84.12/32"]
+  #from_port         = 80
+  #to_port           = 80
+  #protocol          = "tcp"
+  #security_group_id = aws_security_group.cluster-master-sg.id
+#}
+
+#resource "aws_security_group_rule" "cluster_ingress_ssh" {
+  #type              = "ingress"
+  #cidr_blocks       = ["191.7.84.12/32"]
+  #from_port         = 22
+  #to_port           = 22
+ #protocol          = "tcp"
+  #security_group_id = aws_security_group.cluster-master-sg.id
+#}
