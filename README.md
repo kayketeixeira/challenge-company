@@ -59,6 +59,15 @@ http://127.0.0.1:3000
 user: admin
 Password: prom-operator
 ```
+or you can use loadbalancer service to access externally and inform your ip address on LB-service.yaml file.
+```
+kubectl create -f service\LB-service.yaml
+```
+Check the public address in the service lb-service-grafana and lb-service-prometheus, wait for replication to complete for public DNS.
+```
+kubectl get svc
+```
+Access on your browser.
 
 
 
