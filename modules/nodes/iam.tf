@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "eks_node_role" {
 }
 
 resource "aws_iam_role" "eks_node_role" {
-  name = "eks-cluster-kayke_eks-nodes"
+  name = format("%s_eks-nodes", var.cluster_name)
   assume_role_policy = data.aws_iam_policy_document.eks_node_role.json
 }
 

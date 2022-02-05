@@ -2,7 +2,7 @@ resource "aws_eip" "vpc_eip" {
   vpc  = true
 
   tags = {
-    Name = "eks-cluster-kayke_eip"
+    Name = format("%s_vpc_eip", var.cluster_name)
   }
 }
 
@@ -11,7 +11,7 @@ resource "aws_nat_gateway" "nat-gw" {
   subnet_id     = aws_subnet.aws_public_subnet_2a.id
 
   tags = {
-    Name = "eks-cluster-kayke_nat-gateway"
+    Name = format("%s_nat-gateway", var.cluster_name)
   }
 
   depends_on = [aws_eip.vpc_eip]
@@ -21,7 +21,7 @@ resource "aws_route_table" "nat-private" {
   vpc_id = aws_vpc.cluster_vpc.id
 
   tags = {
-    Name = "eks-cluster-kayke_Private-route"
+    Name = format("%s_Private_route", var.cluster_name)
   }
 }
 
@@ -30,4 +30,3 @@ resource "aws_route" "nat-access" {
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.nat-gw.id
 }
-

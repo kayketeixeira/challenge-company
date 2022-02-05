@@ -4,6 +4,6 @@ resource "aws_vpc" "cluster_vpc" {
   enable_dns_support   = true
 
   tags = {
-    Name = "eks-cluster-kayke_vpc"
+    Name = format("%s_vpc", var.cluster_name)
   }
 }

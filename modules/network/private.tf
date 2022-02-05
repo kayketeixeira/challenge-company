@@ -6,7 +6,7 @@ resource "aws_subnet" "aws_private_subnet_2a" {
   availability_zone       = "us-west-2a"
 
   tags = {
-    Name = "eks-cluster-kayke_private-subnet_2a",
+    Name = format("%s_private-subnet_2a", var.cluster_name)
     "kubernetes.io/cluster/eks-cluster-kayke" = "shared"
   }
 }
@@ -19,7 +19,7 @@ resource "aws_subnet" "aws_private_subnet_2b" {
   availability_zone       = "us-west-2b"
 
   tags = {
-    Name = "eks-cluster-kayke_private-subnet_2b"
+    Name = format("%s_private-subnet_2b", var.cluster_name)
     "kubernetes.io/cluster/eks-cluster-kayke" = "shared"
   }
 }

@@ -1,5 +1,5 @@
 resource "aws_security_group" "cluster-master-sg" {
-  name   = "eks-cluster-kayke_master-SG"
+  name   = format("%s_master-SG", var.cluster_name)
   vpc_id = var.cluster_vpc.id
 
   egress {
@@ -10,7 +10,7 @@ resource "aws_security_group" "cluster-master-sg" {
   }
 
   tags = {
-    Name = "eks-cluster-kayke_master-SG"
+    Name = format("%s_master-SG", var.cluster_name)
   }
 }
 
