@@ -17,7 +17,7 @@
 We use terraform modules to be able to reuse all the codes that were created in each folder, in this way it becomes an organized project and easy to find each code.
   
 #### **About the project structure, just to clarify:**
-- We have a paste with the terraform modules, called modules, inside has the "master", "network" and "node" pastes, each one has the .tf files.
+- We have a folder with the terraform modules, called modules, inside has the "master", "network" and "node" pastes, each one has the .tf files.
 - The network module contains all the network configuration (vpc, subnet, internet gw, nat and etc)
 - The master module has the EKS control plane configuration.
 - In node you have the workers configuration.
