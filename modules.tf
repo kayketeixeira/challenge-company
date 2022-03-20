@@ -33,4 +33,13 @@ module "nodes" {
 
   node_instances_sizes = var.node_instances_sizes
   auto_scale_options   = var.auto_scale_options
+
+}
+
+module "app" {
+  source         = "./modules/app"
+
+  cluster_name   = var.cluster_name
+
+  eks_cluster    = module.master.eks_cluster
 }
