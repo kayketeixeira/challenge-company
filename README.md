@@ -4,8 +4,9 @@
   
   
   ### **Diagram of infrastructure built on AWS provisioned using terraform.**
+
   ![stone_challeng](https://user-images.githubusercontent.com/55967749/152402662-bc9e1053-9454-4c9d-9d4b-ae727c1eed4b.png)  
-  
+
  ### **Important informations:**
   - In the EKS control plane will be the master components of the cluster, such as etcd, controller and sheduler. All these are managed by AWS, there will be no access to these instances. We will access the management of workers only.
   - You must create a VPC to create an isolated network environment for the cluster.
@@ -28,7 +29,6 @@ We use terraform modules to be able to reuse all the codes that were created in 
 - AWS CLI installed Version 3.73.0
 - Terraform installed Version 1.0.8
 - kubectl installed and knowledge to manage
-- helm installed and knowledge to manage
 - git installed
 
 ## **Download files** 
@@ -59,20 +59,9 @@ aws eks --region us-west-w update-kubeconfig --name eks-cluster-kayke
 kubectl get nodes
 ```
 
-## **Add repository prometheus on your helm and update** 
-```
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-```
-
-## **Deploy prometheus on your nodes using helm** 
-```
-helm install prometheus prometheus-community/kube-prometheus-stack
-```
-
 ## **Access grafana using port-forward on kubectl, get the deployments to access** 
 ```
-kubectl port-forward deployment.apps/prometheus-grafana 3000
+kubectl port-forward deployment.apps/prometheus-grafana 3000 --namespace monitoring
 ```
 
 ## **On your browser, access 127.0.0.1:3000** 
@@ -81,24 +70,15 @@ http://127.0.0.1:3000
 user: admin
 Password: prom-operator
 ```
-or you can use loadbalancer service to access externally and inform your ip address on LB-service.yaml file.
+## **Adding Dashboard in grafana to check the metrics**
+
 ```
-kubectl create -f service\LB-service.yaml
+1) Select the option "Create".
+2) Select to "import".
+3) Inform the ID 10949.
+    - Select the Prometheus Datastore
 ```
-Check the public address in the service lb-service-grafana and lb-service-prometheus, wait for replication to complete for public DNS.
-```
-kubectl get svc
-```
-Access on your browser.
+## **Prometheus targets**
 
 
-
-
-
-
-
-
-
-
-
-
+## **Thats the metrics you will see**
