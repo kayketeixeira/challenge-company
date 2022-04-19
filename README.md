@@ -79,6 +79,11 @@ Password: prom-operator
     - Select the Prometheus Datastore
 ```
 ## **Prometheus targets**
-
+![prometheus_targets](https://user-images.githubusercontent.com/55967749/164026044-fc329881-14c2-4cb1-85dc-0d94e74e9693.png)
 
 ## **Thats the metrics you will see**
+![latency_nodes](https://user-images.githubusercontent.com/55967749/164026135-db29df24-4836-4397-b8b4-3465eb6f7671.png)
+
+![latency_node](https://user-images.githubusercontent.com/55967749/164026193-f1d730ab-f40f-4adf-a266-9694d46dae5a.png)
+
+
