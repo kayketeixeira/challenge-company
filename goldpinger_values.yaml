@@ -98,8 +98,8 @@ podSecurityPolicy:
 
 serviceMonitor:
   enabled: true
-  additionalLabels: 
-    release: prometheus
+  #additionalLabels:
+    #release: prometheus
   selector:
     release: "prometheus"
   namespace: monitoring

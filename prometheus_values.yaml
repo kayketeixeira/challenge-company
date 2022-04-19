@@ -660,7 +660,7 @@ grafana:
 
   ## Deploy default dashboards
   ##
-  defaultDashboardsEnabled: true
+  defaultDashboardsEnabled: false
 
   ## Timezone for the default dashboards
   ## Other options are: browser or a specific timezone, i.e. Europe/Luxembourg
@@ -714,7 +714,7 @@ grafana:
 
   sidecar:
     dashboards:
-      enabled: true
+      enabled: false
       label: grafana_dashboard
       labelValue: "1"
 
